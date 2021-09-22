@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import  {Button,Modal,Form}  from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SearchBar from './components/search_bar';
 function App() {
   
   const [show,setShow] = useState(false);
@@ -36,11 +37,14 @@ function App() {
   };
 
   return (
+    <div className='app'>
       <div className='topbar'>
         <h1>ShrimPC</h1>
         <Button className='login' onClick={handleShow}>登入</Button>
         <MyModal/>
       </div>
+      <SearchBar />
+    </div>
   )
 
 };
