@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React from 'react';
+import { useState } from 'react';
+import  {Button,Modal,Form}  from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
+  
+  const [show,setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const MyModal = () => {
+    return (
+      <Modal show={show}>
+        <Modal.Header>
+          <Modal.Title>登入</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>帳號</Form.Label>
+              <Form.Control type="email" placeholder="Enter ID" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>密碼</Form.Label>
+              <Form.Control type="password" placeholder="Enter Password" />
+            </Form.Group>
+            <Button variant='secondary' onClick={handleClose}>Close</Button>
+            <Button variant="primary" type="submit" className="set_rightbottom">
+              Submit
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
+    )
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <div className='topbar'>
+        <h1>ShrimPC</h1>
+        <Button className='login' onClick={handleShow}>登入</Button>
+        <MyModal/>
+      </div>
+  )
+
+};
 
 export default App;
