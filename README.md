@@ -1,4 +1,3 @@
-# D0845384 Test
 
 # Getting Started with Create React App
 
