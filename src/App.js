@@ -45,11 +45,8 @@ function App() {
         <MyModal/>
         <SearchBar/>
       </div>
-<<<<<<< HEAD
-      <SearchBar />
       <Submit />
-=======
->>>>>>> ceaf850bacab6f613d219af901a9c62b9f533183
+      <SearchBar />
     </div>
   )
   
