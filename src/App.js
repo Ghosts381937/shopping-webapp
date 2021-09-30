@@ -47,6 +47,7 @@ function App() {
       </div>
       <Submit />
       <SearchBar />
+      <h2>test</h2>
     </div>
   )
   
