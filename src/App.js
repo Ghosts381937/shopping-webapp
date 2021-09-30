@@ -43,6 +43,7 @@ function App() {
         <h1>ShrimPC</h1>
         <Button className='login' onClick={handleShow}>µn¤J</Button>
         <MyModal/>
+        <SearchBar/>
       </div>
 <<<<<<< HEAD
       <SearchBar />
