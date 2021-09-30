@@ -44,8 +44,11 @@ function App() {
         <Button className='login' onClick={handleShow}>µn¤J</Button>
         <MyModal/>
       </div>
+<<<<<<< HEAD
       <SearchBar />
       <Submit />
+=======
+>>>>>>> ceaf850bacab6f613d219af901a9c62b9f533183
     </div>
   )
   
