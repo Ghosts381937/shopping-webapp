@@ -43,7 +43,6 @@ function App() {
         <Button className='login' onClick={handleShow}>登入</Button>
         <MyModal/>
       </div>
-      <SearchBar />
     </div>
   )
 

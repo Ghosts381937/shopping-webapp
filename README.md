@@ -1,4 +1,3 @@
-# D0845384 YYYY
 
 # Getting Started with Create React App
 
