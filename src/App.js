@@ -14,17 +14,17 @@ function App() {
     return (
       <Modal show={show}>
         <Modal.Header>
-          <Modal.Title>µn¤J</Modal.Title>
+          <Modal.Title>ï¿½nï¿½J</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>±b¸¹</Form.Label>
+              <Form.Label>ï¿½bï¿½ï¿½</Form.Label>
               <Form.Control type="email" placeholder="Enter ID" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>±K½X</Form.Label>
+              <Form.Label>ï¿½Kï¿½X</Form.Label>
               <Form.Control type="password" placeholder="Enter Password" />
             </Form.Group>
             <Button variant='secondary' onClick={handleClose}>Close</Button>
@@ -41,12 +41,11 @@ function App() {
     <div className='app'>
       <div className='topbar'>
         <h1>ShrimPC</h1>
-        <Button className='login' onClick={handleShow}>µn¤J</Button>
+        <Button className='login' onClick={handleShow}>ï¿½nï¿½J</Button>
         <MyModal/>
         <SearchBar/>
       </div>
       <Submit />
-      <SearchBar />
     </div>
   )
   
