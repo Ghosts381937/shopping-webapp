@@ -29,17 +29,13 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-<<<<<<< HEAD
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-=======
-**Note: this is a one-way operation. Once you `eject`, you can??脌 go back!**
-
-If you aren??脌 satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you??胩e on your own.
 
-You don??脌 have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn??脌 feel obligated to use this feature. However we understand that this tool wouldn??脌 be useful if you couldn??脌 customize it when you are ready for it.
->>>>>>> 49a1ce0f13a14b9197ae2c73e113d5ebf58e40ad
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 
