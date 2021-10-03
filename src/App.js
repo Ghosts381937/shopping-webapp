@@ -46,7 +46,6 @@ function App() {
         <SearchBar/>
       </div>
       <Submit />
-      <SearchBar />
     </div>
   )
   
