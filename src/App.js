@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import  {Button,Modal,Form}  from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import SearchBar from './components/search_bar';
+import SearchBar from './components/SearchBar';
 //import Submit from './components/Submiit';
 function App() {
   
@@ -42,6 +42,7 @@ function App() {
       <div className='topbar'>
         <h1>ShrimPC</h1>
         <Button className='login' onClick={handleShow}>登入</Button>
+        <SearchBar />
         <MyModal />
       </div>
     </div>
