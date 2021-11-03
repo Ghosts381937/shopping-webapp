@@ -3,8 +3,8 @@ import React from 'react';
 import { useState } from 'react';
 import  {Button,Modal,Form}  from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SearchBar from './components/search_bar';
-import Submit from './components/Submiit';
+//import SearchBar from './components/search_bar';
+//import Submit from './components/Submiit';
 function App() {
   
   const [show,setShow] = useState(false);
@@ -42,10 +42,8 @@ function App() {
       <div className='topbar'>
         <h1>ShrimPC</h1>
         <Button className='login' onClick={handleShow}>登入</Button>
-        <MyModal/>
-        <SearchBar/>
+        <MyModal />
       </div>
-      <Submit />
     </div>
   )
   
