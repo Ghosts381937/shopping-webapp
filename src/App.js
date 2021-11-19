@@ -40,12 +40,13 @@ function App() {
   return (
     <div className='app'>
       <div className='topbar'>
-        <h1>ShrimPC</h1>
-        <Button className='login' onClick={handleShow}>登入</Button>
+        <div className='title'>ShrimPC</div>
         <SearchBar />
-        <MyModal />
+        <Button className='login' onClick={handleShow}>登入</Button>
       </div>
+      <MyModal />
     </div>
+    
   )
   
 };
