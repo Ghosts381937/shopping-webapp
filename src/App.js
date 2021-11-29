@@ -4,6 +4,7 @@ import { useState } from 'react';
 import  {Button,Modal,Form}  from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from './components/SearchBar';
+import Products from "./components/Products/Products";
 //import Submit from './components/Submiit';
 function App() {
   
@@ -45,8 +46,10 @@ function App() {
         <Button className='login' onClick={handleShow}>登入</Button>
       </div>
       <MyModal />
+      <div>
+        <Products />
+      </div>
     </div>
-    
   )
   
 };
