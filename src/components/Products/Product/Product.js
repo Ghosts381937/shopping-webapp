@@ -15,7 +15,7 @@ const Product = ({product}) => {
     const classes = useStyles();
     return (
         <Card className = {classes.root}>
-            <CardMedia className = {classes.media} image = {product.image} title = {product.name} style = {styles.media} />
+            <CardMedia className = {classes.media} component = "img" src = {"data: image; base64," + product.image} title = {product.name} />
             <CardContent>
                 <div className = {classes.cardContentName}>
                     <Typography variant = "h4" gutterBottom>
@@ -24,10 +24,10 @@ const Product = ({product}) => {
                 </div>
                 <div className = {classes.cardContent}>
                     <Typography variant = "h5" gutterBottom>
-                        數量: {product.num}
+                        數量: {product.quantity}
                     </Typography>
                     <Typography variant = "h5" gutterBottom>
-                        {product.price}
+                        NT: {product.price}
                     </Typography>
                 </div>
             </CardContent>

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Product from "./Product/Product";
-import axios from "./axios";
-
-const products = [
-    {id: 1, name: "shoes", num: "20", price: "NT200", image: "https://i.imgur.com/j0KmsPW.jpeg"}
-]
+import axios from "../Axios";
 
 const Products = () => {
+    const [products, setProducts] = useState([]);
+    const handleGetProducts = () => {
+        axios.get("/product/showProduct")
+        .then((response) => {
+            setProducts(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    };
+    useEffect(() => {
+        handleGetProducts();
+    },[])
     return (
         <main>
             <Grid container justifyContent = "center" spacing = {4}>
