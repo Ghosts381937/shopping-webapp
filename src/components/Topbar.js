@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from './SearchBar';
 import LoginModal from './LoginModal';
+import LogoutButton from './LogoutButton'
 const Topbar = () => {
   const navigate = useNavigate();
   const [isShow,setIsShow] = useState(false);
@@ -21,6 +22,7 @@ const Topbar = () => {
             <Button className='redColorNoBorder' onClick={handleRegisterClick}>註冊</Button>
             <div className='seperator'></div>
             <Button className='redColorNoBorder' onClick={handleShow}>登入</Button>
+            {/*<LogoutButton />*/}
         </div>
         <LoginModal isShow = {isShow} handleClose = {handleClose}/>
     </div>
