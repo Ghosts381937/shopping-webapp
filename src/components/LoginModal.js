@@ -10,7 +10,7 @@ const LoginModal = (props) => {
   const handleSubmit = () => {
     axios.post("http://localhost:8080/auth/login",null,{params:{username: username,password: password},withCredentials: true})
     .then((response) => {
-        alert(response.data);response.data === "Success" ? window.location.replace("/") : window.location.reload()
+        alert(response.data);response.data === "Success!" ? window.location.replace("/") : window.location.reload()
       }
     );
   } 
