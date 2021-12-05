@@ -58,7 +58,7 @@ const RegisterModal = (props) => {
               <Form.Control type="password" placeholder="Enter Password" onChange={(e) => R_setPasswordcheck(e.target.value)} required/>
             </Form.Group>
           
-            <Button variant='secondary' className="btn mb-3 me-md-3"onClick={props.handleRegisterClose}> Close </Button>
+            <Button variant='secondary' className="btn mb-3 me-md-3" onClick={props.handleRegisterClose}> Close </Button>
             
             <Button variant="primary" className="btn mb-3" type="submit" onClick={(e) => {R_handleSubmit();e.preventDefault();}}>
             {/* <Button variant="primary" className="btn mb-3" type="submit" onClick={(e) => {R_handleSubmit();}}> */}

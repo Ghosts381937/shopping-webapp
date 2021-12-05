@@ -31,8 +31,8 @@ const LoginModal = (props) => {
               <Form.Label>密碼</Form.Label>
               <Form.Control  placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)} required/>
             </Form.Group>
-            <Button variant='secondary' onClick={props.handleClose}>Close</Button>
-            <Button variant="primary" type="submit" className="set_rightbottom" onClick={(e) => {handleSubmit();e.preventDefault();}}>
+            <Button variant='secondary' className="btn mb-3 me-md-3" onClick={props.handleClose}>Close</Button>
+            <Button variant="primary" type="submit" className="btn mb-3" onClick={(e) => {handleSubmit();e.preventDefault();}}>
               Submit
             </Button>
           </Form>
