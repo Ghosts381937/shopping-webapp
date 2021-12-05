@@ -1,0 +1,35 @@
+.topbar {
+    background-color: #ee4d2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title {
+    margin-left: 1vw;
+    font-size: 5vh;
+    color: #eee;
+  }
+  .searchBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .redColorBorder {
+    background-color: #ee4d2d !important;
+    border-color: white !important;
+    box-shadow: none !important;
+  }
+  .redColorNoBorder {
+    background-color: #ee4d2d !important;
+    border-color: #ee4d2d !important;
+    box-shadow: none !important;
+  }
+  .memberService {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .seperator {
+    border-right: 1.5px solid hsla(0,0%,100%,.4);
+    height: 2rem;
+  }

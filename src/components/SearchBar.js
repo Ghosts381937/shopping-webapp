@@ -8,10 +8,10 @@ const SearchBar = () => {
     const handleSetProductName = (e) => setProductName(e.target.value);
     return (
         <Form className='searchBar' onSubmit={handleSubmit}>
-            <Form.Group controlId="productName" onChange={handleSetProductName}>
+            <Form.Group controlId="productName" onChange={handleSetProductName} style={{marginRight:"1vw"}} >
                 <Form.Control type="text" placeholder="Search for something"/>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button type="submit" className='redColorBorder'>
                 Search
             </Button>
         </Form>
