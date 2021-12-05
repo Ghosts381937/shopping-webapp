@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from './SearchBar';
 import LoginModal from './LoginModal';
-import RegisterModel from './RegisterModel';
+import RegisterModal from './RegisterModal';
 
 import LogoutButton from './LogoutButton'
 
@@ -39,7 +39,7 @@ const Topbar = () => {
         </div>
 
         <LoginModal isShow = {isShow} handleClose = {handleClose}/>
-        <RegisterModel isShow_R = {isShow_R} handleRegisterClose = {handleRegisterClose}/>
+        <RegisterModal isShow_R = {isShow_R} handleRegisterClose = {handleRegisterClose}/>
 
     </div>
     

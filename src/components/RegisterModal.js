@@ -13,17 +13,22 @@ const RegisterModal = (props) => {
 
 
   const R_handleSubmit = () => {
-    axios.post("http://54.65.248.67:8080/auth/register", null , {params:{
-      username: R_username, 
-      email: R_useremail, 
-      password: R_password,
-      passwordcheck: R_passwordcheck
-    },withCredentials: true})
-
-    .then((response) => {
-        console.log(response.data); response.data === "Success!" ? window.location.replace("/") : window.location.reload()
-      }
-    );
+    if (R_password === R_passwordcheck){
+      axios.post("http://54.65.248.67:8080/member/register", null , {params:{
+        username: R_username,
+        password: R_password,
+        email: R_useremail
+      },withCredentials: false})
+      
+      .then((response) => {
+          console.log(response.data); response.data === "Success!" ? window.location.replace("/") : window.location.reload()
+        }
+      );
+    }
+    else {
+      alert("密碼不一致");
+    }
+    
   } 
         
     return (
