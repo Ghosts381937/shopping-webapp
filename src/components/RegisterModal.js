@@ -21,7 +21,7 @@ const RegisterModal = (props) => {
       },withCredentials: false})
       
       .then((response) => {
-          console.log(response.data); response.data === "Success!" ? window.location.replace("/") : window.location.reload()
+          alert(response.data); response.data === "Success!" ? window.location.replace("/") : window.location.reload()
         }
       );
     }
