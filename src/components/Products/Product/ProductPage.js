@@ -24,7 +24,7 @@ const ProductPage = () => {
         axios.post("/shoppingcart/add", null, {params: {id: product.id, quantity: current_num}, withCredentials: true})
         .then((response) => {
             alert(response.data);
-            response.data === "Success!" ? window.location.replace("/") : window.location.reload()
+            response.data === "Success!" ? window.location.reload() : window.location.reload()
         })
     }
 
