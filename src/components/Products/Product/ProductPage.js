@@ -36,9 +36,9 @@ const ProductPage = () => {
                     <h1 className='h1'>{product.name}</h1>
                     <h1 className='h1'>價格: NT{product.price}</h1>
                     <div className='selectBar'>
-                        <button onClick={sub}>-</button>
+                        <button className='buttonSub' onClick={sub}>-</button>
                         <div className='book_num'>{current_num}</div>
-                        <button onClick={add}>+</button>
+                        <button className='buttonPlus' onClick={add}>+</button>
                     </div>
                     <h1 className='h1'>剩餘: {product.quantity}</h1>
                     <button className='addCart' onClick={handle_submit}>加入購物車</button>
