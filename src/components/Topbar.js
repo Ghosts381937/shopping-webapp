@@ -1,14 +1,14 @@
 import './Topbar.css';
 import React from 'react';
 import { useState } from 'react';
-import  {Button}  from 'react-bootstrap';
+import {Button}  from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from './SearchBar';
 import LoginModal from './LoginModal';
 import RegisterModal from './RegisterModal';
+import LogoutButton from './LogoutButton';
 
-import LogoutButton from './LogoutButton'
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -27,15 +27,17 @@ const Topbar = () => {
 
   return (
     <div className='topbar'>
-        <div className='title'>ShrimPC</div>
+        <div className='title' onClick={()=> navigate('/')}>ShrimPC</div>
 
         <SearchBar />
-
+		
         <div className='memberService'> 
             <Button className='redColorNoBorder' onClick={handleRegisterShow}>註冊</Button>
             <div className='seperator'></div>
             <Button className='redColorNoBorder' onClick={handleShow}>登入</Button>
             {/*<LogoutButton />*/}
+			<div className='seperator'></div>
+			<Button className='redColorNoBorder' onClick={()=> navigate('/Cart')}>購物車</Button>
         </div>
 
         <LoginModal isShow = {isShow} handleClose = {handleClose}/>
