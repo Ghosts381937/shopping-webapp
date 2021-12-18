@@ -17,7 +17,7 @@ const Product = ({product}) => {
                 <div className = {classes.cardContent}>
                     <Typography variant = "h5" gutterBottom>
                         數量: {product.quantity}
-                    </Typography>git
+                    </Typography>
                     <Typography variant = "h5" gutterBottom>
                         NT: {product.price}
                     </Typography>
