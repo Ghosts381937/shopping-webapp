@@ -17,7 +17,7 @@ const Product = ({product}) => {
                 <div className = {classes.cardContent}>
                     <Typography variant = "h5" gutterBottom>
                         數量: {product.quantity}
-                    </Typography>
+                    </Typography>git
                     <Typography variant = "h5" gutterBottom>
                         NT: {product.price}
                     </Typography>
@@ -30,6 +30,5 @@ const Product = ({product}) => {
             </CardActions>
         </Card>
     );
-};
-
+}
 export default Product

@@ -6,19 +6,20 @@ import axios from "./Axios";
 const Cart = () => {
 	let quantity = 0;
 	let price = 0;
-    const [Cart, setProducts] = useState([]);
-	const [QT, setQT] = useState();//quanity
+    const [item, setProducts] = useState([]);
+	const [QT, setQT] = useState();//quantity
 	const [PR, setPR] = useState();//price
     const handleGetProducts = () => {
-        axios.get("/product/showProduct",null , {withCredential: true})
+        axios.get("/shoppingcart/showShoppingCart",null , {withCredential: true})
         .then((response) => {
 			for(let i=0;i<=response.data.length-1;i++){
 			  quantity = quantity + parseInt(response.data[i].quantity);
 			  price = price + (parseInt(response.data[i].price)*parseInt(response.data[i].quantity));
 			}
-            setProducts(response.data,quantity,price);
+			if(response.data.length>0)
+				setProducts(response.data);
 			setQT(quantity);
-			setPR(price);			
+			setPR(price);	
         })
         .catch(function (error) {
             console.log(error);
@@ -43,15 +44,15 @@ const Cart = () => {
 	return (
             <div className="container">
                 <div className="cart">
-                    <h5>You have ordered:</h5>
+                   
 <table>
 <tr className="collection-item avatar">
 	<th colspan="2"><center>商品</center></th>
 	<th><center>單價</center></th>
 	<th><center>數量</center></th>
 	<th><center>操作</center></th>
-</tr>					
-            {Cart.map((product) => (				
+</tr>				
+            {item.map((product) => (				
 <tr className="collection-item avatar" key={product.id}>
 	<td className="item-img">
 			<img src= {"data: image; base64," + product.image} alt={product.name} className=""/>
@@ -69,8 +70,9 @@ const Cart = () => {
 		<Button variant="contained" onClick={()=>{handleRemove(product.id)}}>取消</Button>
 	</td>
 </tr>				
-
+	
             ))}
+	
 <tr className="collection-item avatar">
 	<td colspan="2">總共</td>
 	<td className="item-price">
