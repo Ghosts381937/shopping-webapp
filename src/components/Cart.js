@@ -10,7 +10,7 @@ const Cart = () => {
 	const [QT, setQT] = useState();//quanity
 	const [PR, setPR] = useState();//price
     const handleGetProducts = () => {
-        axios.get("/product/showProduct")
+        axios.get("/product/showProduct",null , {withCredential: true})
         .then((response) => {
 			for(let i=0;i<=response.data.length-1;i++){
 			  quantity = quantity + parseInt(response.data[i].quantity);
