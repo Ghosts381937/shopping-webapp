@@ -69,7 +69,7 @@
     align-self:center;
 }
 .item-title{
-    align-self:center;
+    text-align: start;
 }
 table {
   border-collapse: collapse;

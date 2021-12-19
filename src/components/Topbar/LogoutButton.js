@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from "../Axios";
 import { Button } from "react-bootstrap";
 const LogoutButton = () => {
     const handleLogout = () => {
-        axios.post("http://localhost:8080/auth/logout",null,{withCredentials: true})
+        axios.post("/auth/logout",null,{withCredentials: true})
         .then((response) => {
             alert(response.data);response.data === "Success!" ? window.location.replace("/") : window.location.reload()
             }

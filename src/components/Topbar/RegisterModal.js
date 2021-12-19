@@ -1,9 +1,9 @@
-import '../App.css';
+import '../../App.css';
 import React from 'react';
 import { useState } from 'react';
 import  {Button,Modal,Form}  from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from "axios";
+import axios from "../Axios";
 
 const RegisterModal = (props) => {
   const [R_username, R_setUsername] = useState("");
@@ -14,7 +14,7 @@ const RegisterModal = (props) => {
 
   const R_handleSubmit = () => {
     if (R_password === R_passwordcheck){
-      axios.post("http://54.65.248.67:8080/member/register", null , {params:{
+      axios.post("/member/register", null , {params:{
         username: R_username,
         password: R_password,
         email: R_useremail
@@ -37,7 +37,7 @@ const RegisterModal = (props) => {
           <Modal.Title>註冊</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={(e) => {R_handleSubmit();e.preventDefault();}}>
             <Form.Group className="mb-3">
               <Form.Label>帳號</Form.Label>
               <Form.Control  placeholder="Enter ID" onChange={(e) => R_setUsername(e.target.value)} required/>
@@ -60,7 +60,7 @@ const RegisterModal = (props) => {
           
             <Button variant='secondary' className="btn mb-3 me-md-3" onClick={props.handleRegisterClose}> Close </Button>
             
-            <Button variant="primary" className="btn mb-3" type="submit" onClick={(e) => {R_handleSubmit();e.preventDefault();}}>
+            <Button variant="primary" className="btn mb-3" type="submit">
             {/* <Button variant="primary" className="btn mb-3" type="submit" onClick={(e) => {R_handleSubmit();}}> */}
 
               Submit

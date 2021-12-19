@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "./Axios";
 const Subnit = () => {
     const [myImg,setImage] = useState({});
     const handleSetImage = (e) => {
@@ -10,7 +10,7 @@ const Subnit = () => {
     const handleUploadImage = () => {
         let formData = new FormData();
         formData.append("file",myImg.image_file);
-        axios.post("http://localhost:8080/upload",formData,{
+        axios.post("/upload",formData,{
             headers: {
               "Content-Type": "multipart/form-data"
             }
