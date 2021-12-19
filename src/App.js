@@ -8,7 +8,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Products from "./components/Products/ProductList";
 import ProductPage from "./components/Products/Product/ProductPage"
 // import Submit from './components/Submiit';
-
+import Carts from "./components/Cart";
 function App() {
 
   return (
@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route exact path = "/" element = {<Products />} />
           <Route path = "/productpage" element = {<ProductPage />} />
+		      <Route path="/Cart" element={<Carts />} />
         </Routes>
       </Router>
     </div> 

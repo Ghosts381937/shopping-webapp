@@ -28,6 +28,5 @@ const Product = ({product}) => {
             </CardActionArea>
         </Card>
     );
-};
-
+}
 export default Product
