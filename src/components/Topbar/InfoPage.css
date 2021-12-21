@@ -1,0 +1,17 @@
+.userInfo {
+    margin: auto;
+    margin-top: 10vh;
+}
+.redColorButton {
+    background-color: #ee4d2d !important;
+    border-color: white !important;
+    box-shadow: none !important;
+    width: 10vw;
+}
+.Label {
+    color: #ee4d2d;
+    font-size:150%;
+}
+.Text {
+    font-size: 120%;
+}

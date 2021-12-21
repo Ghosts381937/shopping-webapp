@@ -36,8 +36,10 @@ const Topbar = () => {
             <div className='seperator'></div>
             <Button className='redColorNoBorder' onClick={handleShow}>登入</Button>
             {/*<LogoutButton />*/}
-			<div className='seperator'></div>
-			<Button className='redColorNoBorder' onClick={()=> navigate('/Cart')}>購物車</Button>
+            <div className='seperator'></div>
+            <Button className='redColorNoBorder' onClick={()=> navigate('/Cart')}>購物車</Button>
+            <div className='seperator'></div>
+            <Button className='redColorNoBorder' onClick={()=> navigate('/InfoPage')}>個人資料</Button>
         </div>
 
         <LoginModal isShow = {isShow} handleClose = {handleClose}/>
