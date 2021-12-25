@@ -1,14 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'  // Temp need delete useState(for test)!!!
 import {Card, CardMedia, CardContent, Typography, CardActionArea} from "@material-ui/core";
 import useStyles from "./styles";
 import { useNavigate } from 'react-router-dom';
+import EditProductManageModal from '../../EditProductManageModal';  // Temp need delete(for test)!!!
 
 const Product = ({product}) => {
+    const [isShow,setIsShow] = useState(false);  // Temp need delete(for test)!!!
+    const handleShow = () => setIsShow(true);  // Temp need delete(for test)!!!
+    const handleClose = () => setIsShow(false);  // Temp need delete(for test)!!!
+
     const navigate = useNavigate();
     const classes = useStyles();
+    
     return (
         <Card className = {classes.root}>
-            <CardActionArea onClick={() => {navigate("/productpage", {state: {product: product}}); window.location.replace("/productpage");}}>
+            {/*onClick need to recover. Now is for test!!!*/}
+            <CardActionArea onClick={handleShow/*() => {navigate("/productpage", {state: {product: product}}); window.location.replace("/productpage");}*/}>
                 <CardMedia className = {classes.media} component = "img" src = {"data: image; base64," + product.image} title = {product.name} />
                 <CardContent>
                     <div className = {classes.cardContentName}>
@@ -25,6 +32,8 @@ const Product = ({product}) => {
                         </Typography>
                     </div>
                 </CardContent>
+            <EditProductManageModal isShow = {isShow} product = {product} handleClose = {handleClose} />
+            {/*EditProductManageModal. Now is for test!!!*/}
             </CardActionArea>
         </Card>
     );
