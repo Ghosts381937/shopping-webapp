@@ -18,14 +18,12 @@ const EditProductManageModal = (props) => {
     const handleSubmit = () => {
         let formData = new FormData();
         formData.append("file", myImg.image_file);
-        formData.append("name", productName);
-        formData.append("quantity", productQuantity);
-        formData.append("price", productPrice);
-        formData.append("description", productDescription);
-        axios.post("/upload", formData, {
-            headers: {
-              "Content-Type": "multipart/form-data"
-            }
+        axios.post("/upload", formData, {params:{name: productName, quantity: productQuantity, price: productPrice, description: productDescription}, 
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }, withCredentials: true})
+        .then((response) => {
+            alert(response.data);response.data === "Success!" ? window.location.replace("/") : window.location.reload()
         });
     } 
 

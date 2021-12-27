@@ -9,6 +9,8 @@ import Products from "./components/Products/ProductList";
 import ProductPage from "./components/Products/Product/ProductPage"
 // import Submit from './components/Submiit';
 import Carts from "./components/Topbar/Cart";
+import AdminCart from './components/Topbar/AdminCartPage';
+
 function App() {
 
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route exact path = "/" element = {<Products />} />
           <Route path = "/productpage" element = {<ProductPage />} />
 		      <Route path="/Cart" element={<Carts />} />
+		      <Route path="/AdminCartPage" element={<AdminCart />} />
         </Routes>
       </Router>
     </div> 

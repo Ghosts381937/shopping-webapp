@@ -9,8 +9,6 @@ import LoginModal from './LoginModal';
 import RegisterModal from './RegisterModal';
 import LogoutButton from './LogoutButton';
 
-import ProductManageModal from '../CreateProductManageModal';  // Temp need delete(for test)!!!
-
 const Topbar = () => {
   const navigate = useNavigate();
   const [isShow,setIsShow] = useState(false);
@@ -40,8 +38,7 @@ const Topbar = () => {
 			<Button className='redColorNoBorder' onClick={()=> navigate('/Cart')}>購物車</Button>
         </div>
 
-        <ProductManageModal isShow = {isShow} handleClose = {handleClose}/>  {/*Temp need delete(for test)!!!*/}
-        {/* <LoginModal isShow = {isShow} handleClose = {handleClose}/> */}
+        <LoginModal isShow = {isShow} handleClose = {handleClose}/>
         <RegisterModal isShow_R = {isShow_R} handleRegisterClose = {handleRegisterClose}/>
 
     </div>
