@@ -15,27 +15,15 @@ const AdminCart = () => {
     const handleShowEdit = () => setIsShowEdit(true);
     const handleCloseEdit = () => setIsShowEdit(false);
 	const [item, setProducts] = useState([]);
-	const [QT, setQT] = useState();//quantity
-	const [PR, setPR] = useState();//price
+
 	const handleGetProducts = () => {
 		axios.get("/product/showProduct")
 			.then((response) => {
-				for (let i = 0; i <= response.data.length - 1; i++) {
-					quantity = quantity + parseInt(response.data[i].quantity);
-					price = price + (parseInt(response.data[i].product.price) * parseInt(response.data[i].quantity));
-				}
-				if (response.data.length > 0) {
-					var tmp = [];
-					for (var i = 0; i < response.data.length; i++) {
-						var quantityInCart = response.data[i].quantity;
-						tmp.push(response.data[i].product);
-						tmp[i].quantity = quantityInCart;
-
-					}
-					setProducts(tmp);
-				}
-				setQT(quantity);
-				setPR(price);
+			
+			
+				setProducts(response.data);
+				
+			
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -69,7 +57,7 @@ const AdminCart = () => {
 					<tr className="collection-item avatar">
 						<th colspan="2"><center>商品</center></th>
 						<th><center>單價</center></th>
-						<th><center>數量</center></th>
+						<th><center>剩餘數量</center></th>
 						<th><center>操作</center></th>
 					</tr>
 					{item.map((product) => (
