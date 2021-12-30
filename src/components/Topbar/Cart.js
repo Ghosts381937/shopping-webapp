@@ -45,7 +45,7 @@ const Cart = () => {
 		})
 			.then((response) => {
 				alert(response.data);
-				response.data === "Success!" ? window.location.reload() : window.location.reload()
+				window.location.reload();
 			}
 			);
 	}

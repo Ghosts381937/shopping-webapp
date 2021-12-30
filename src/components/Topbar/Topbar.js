@@ -10,7 +10,7 @@ import RegisterModal from './RegisterModal';
 import LogoutButton from './LogoutButton';
 
 
-const Topbar = () => {
+const Topbar = (props) => {
   const navigate = useNavigate();
   const [isShow,setIsShow] = useState(false);
 
@@ -29,7 +29,7 @@ const Topbar = () => {
     <div className='topbar'>
         <div className='title' onClick={()=> navigate('/')}>ShrimPC</div>
 
-        <SearchBar />
+        <SearchBar searchResult = {props.searchResult} handleSearchResult = {(result) => props.handleSearchResult(result)}/>
 		
         <div className='memberService'> 
             <Button className='redColorNoBorder' onClick={handleRegisterShow}>註冊</Button>

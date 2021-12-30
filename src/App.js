@@ -1,5 +1,6 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "./components/Axios";
 import Topbar from './components/Topbar/Topbar'
 //import Register from './components/Register'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,13 +11,16 @@ import ProductPage from "./components/Products/Product/ProductPage"
 // import Submit from './components/Submiit';
 import Carts from "./components/Topbar/Cart";
 function App() {
-
+  const [searchResult, setSearchResult] = useState([]);
+  const handleSearchResult = (result) => {
+    setSearchResult(result);
+  }
   return (
     <div className='app'>
       <Router>
-        <Topbar />
+        <Topbar searchResult = {searchResult} handleSearchResult = {(result) => handleSearchResult(result)}/>
         <Routes>
-          <Route exact path = "/" element = {<Products />} />
+          <Route exact path = "/" element = {<Products searchResult = {searchResult}/>} />
           <Route path = "/productpage" element = {<ProductPage />} />
 		      <Route path="/Cart" element={<Carts />} />
         </Routes>

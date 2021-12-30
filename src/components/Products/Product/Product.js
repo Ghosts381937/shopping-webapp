@@ -8,7 +8,7 @@ const Product = ({product}) => {
     const classes = useStyles();
     return (
         <Card className = {classes.root}>
-            <CardActionArea onClick={() => {navigate("/productpage", {state: {product: product}}); window.location.replace("/productpage");}}>
+            <CardActionArea onClick={() => {navigate("/productpage", {state: {product: product}});}}>
                 <CardMedia className = {classes.media} component = "img" src = {"data: image; base64," + product.image} title = {product.name} />
                 <CardContent>
                     <div className = {classes.cardContentName}>
