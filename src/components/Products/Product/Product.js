@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Product = ({product}) => {
     const navigate = useNavigate();
     const classes = useStyles();
+    
     return (
         <Card className = {classes.root}>
             <CardActionArea onClick={() => {navigate("/productpage", {state: {product: product}}); window.location.replace("/productpage");}}>

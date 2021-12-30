@@ -76,6 +76,7 @@ const Cart = () => {
 								<p><b>{product.quantity}</b></p>
 							</td>
 							<td className="item-desc">
+								
 								<Button variant="contained" onClick={() => { handleRemove(product.id) }}>取消</Button>
 							</td>
 						</tr>
