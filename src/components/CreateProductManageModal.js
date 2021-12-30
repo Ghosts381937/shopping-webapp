@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Modal, Form} from "react-bootstrap";
 import "./ProductManageModal.css";
-import axios from 'axios';
+import axios from './Axios';
 
 const ProductManageModal = (props) => {
     const [productName, setProductName] = useState("");
@@ -18,7 +18,7 @@ const ProductManageModal = (props) => {
     const handleSubmit = () => {
         let formData = new FormData();
         formData.append("file", myImg.image_file);
-        axios.post("/upload", formData, {params:{name: productName, quantity: productQuantity, price: productPrice, description: productDescription}, 
+        axios.post("/productManagement/add", formData, {params:{name: productName, quantity: productQuantity, price: productPrice, description: productDescription}, 
         headers: {
             "Content-Type": "multipart/form-data"
         }, withCredentials: true})

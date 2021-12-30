@@ -4,7 +4,7 @@ import axios from "../Axios";
 import ProductManageModal from "../CreateProductManageModal";
 import EditProductManageModal from '../EditProductManageModal';
 import "./AdminCartPage.css";
-
+import Base64 from '../Base64';
 const AdminCart = () => {
     const [isShow,setIsShow] = useState(false);
     const [isShowEdit, setIsShowEdit] = useState(false);
@@ -17,6 +17,7 @@ const AdminCart = () => {
 	const [scroll, setScroll] = useState(window.scrollY);
 	const [scrollUp, setScrollUp] = useState(true);
 
+	
 	const handleScroll = () => {
 		if (window.scrollY - scroll < 0) {
 			setScrollUp(true);
@@ -46,7 +47,7 @@ const AdminCart = () => {
 	}, [])
 
 	const handleRemove = (props) => {//控制移除
-		axios.post("/shoppingcart/remove", null, {
+		axios.post("/productManagement/delete", null, {
 			params: {
 				id: props
 			}, withCredentials: true
@@ -92,7 +93,7 @@ const AdminCart = () => {
 									<p><b>{product.quantity}</b></p>
 								</td>
 								<td className="item-desc">
-									<Button className='Edit' variant = "contained" onClick={() => { handleShowEdit(); setEditProduct(product);}}>編輯</Button>
+									<Button className='Edit' variant = "contained" onClick={() => {product["blob"] = Base64.b64toBlob(product.image, 'jpg'); handleShowEdit(); setEditProduct(product);}}>編輯</Button>
 									<Button className='Delete' variant="contained" onClick={() => { handleRemove(product.id) }}>取消</Button>
 								</td>
 							</tr>

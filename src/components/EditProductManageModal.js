@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Modal, Form} from "react-bootstrap";
 import "./ProductManageModal.css";
-import axios from 'axios';
+import axios from './Axios';
 
 const EditProductManageModal = (props) => {
+    const [productId, setProductId] = useState("");
     const [productName, setProductName] = useState("");
     const [productQuantity, setProductQuantity] = useState("");
     const [productPrice, setProductPrice] = useState("");
@@ -18,21 +19,24 @@ const EditProductManageModal = (props) => {
     const handleSubmit = () => {
         let formData = new FormData();
         formData.append("file", myImg.image_file);
-        axios.post("/upload", formData, {params:{name: productName, quantity: productQuantity, price: productPrice, description: productDescription}, 
+        axios.post("/productManagement/update", formData, {params:{id:productId, name: productName, quantity: productQuantity, price: productPrice, description: productDescription}, 
         headers: {
             "Content-Type": "multipart/form-data"
         }, withCredentials: true})
         .then((response) => {
-            alert(response.data);response.data === "Success!" ? window.location.replace("/") : window.location.reload()
+            alert(response.data); response.data === "Success!" ? window.location.replace("/") : window.location.reload()
         });
     }
+    
 
     const hanleRefreshProduct = () => {
+        setProductId(props.product.id);
         setProductName(props.product.name);
         setProductQuantity(props.product.quantity);
         setProductPrice(props.product.price);
         setProductDescription(props.product.description);
-        setImage({"image_preview": "data: image; base64," + props.product.image});
+        
+        setImage({"image_preview": "data: image; base64," + props.product.image, "image_file": props.product.blob});
     }
 
     useEffect(() => {
