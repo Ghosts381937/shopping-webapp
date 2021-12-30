@@ -20,8 +20,8 @@ const AdminCart = () => {
 		axios.get("/product/showProduct")
 			.then((response) => {
 			
-			
-				setProducts(response.data);
+				
+					setProducts(response.data);
 				
 			
 			})
@@ -75,7 +75,7 @@ const AdminCart = () => {
 								<p><b>{product.quantity}</b></p>
 							</td>
 							<td className="item-desc">
-								<Button variant = "add" onClick={() => { handleShowEdit(); setEditProduct(product); } }>編輯</Button>
+								<Button variant = "contained" onClick={() => { handleShowEdit(); setEditProduct(product); } }>編輯</Button>
 								<Button variant="contained" onClick={() => { handleRemove(product.id) }}>取消</Button>
 							</td>
 						</tr>
