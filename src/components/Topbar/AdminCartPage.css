@@ -1,0 +1,61 @@
+.addProduct {
+	border: 2px solid #ee4d2d;
+	background-color: #fff;
+	font-size: 22px;
+	height: 2.5em;
+	width: 2.5em;
+	border-radius: 999px;
+	position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transition: 0.25s;
+}
+
+.addProduct:after, .addProduct:before {
+    content: "";
+    display: block;
+    background-color: #ee4d2d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.25s;
+}
+	
+.addProduct:before {
+	height: 1em;
+	width: 0.2em;
+}
+
+.addProduct:after {
+	height: 0.2em;
+	width: 1em;
+}
+
+.addProduct:hover {
+    background-color: #ee4d2d;
+}
+
+.addProduct:hover:before, .addProduct:hover:after {
+    background-color: white;
+}
+
+.Edit {
+    background-color: #ee4d2d !important;
+    color: #fff !important;
+    transition: 0.25s !important;
+}
+
+.Edit:hover {
+    background-color: rgb(212, 208, 208) !important;
+    color: #000 !important;
+}
+
+.Delete {
+    transition: 0.25s !important;
+}
+
+.Delete:hover {
+    background-color: rgb(224, 2, 2) !important;
+    color: #fff !important;
+}

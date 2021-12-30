@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Modal, Form} from "react-bootstrap";
 import "./ProductManageModal.css";
 import axios from 'axios';
 
 const EditProductManageModal = (props) => {
-    const [productName, setProductName] = useState(props.product.name);
-    const [productQuantity, setProductQuantity] = useState(props.product.quantity);
-    const [productPrice, setProductPrice] = useState(props.product.price);
-    const [productDescription, setProductDescription] = useState(props.product.description);
-    const [myImg,setImage] = useState({"image_preview": "data: image; base64," + props.product.image});
+    const [productName, setProductName] = useState("");
+    const [productQuantity, setProductQuantity] = useState("");
+    const [productPrice, setProductPrice] = useState("");
+    const [productDescription, setProductDescription] = useState("");
+    const [myImg,setImage] = useState([]);
 
     const handleSetImage = (e) => {
         let image_as_url = URL.createObjectURL(e.target.files[0]);
@@ -25,7 +25,19 @@ const EditProductManageModal = (props) => {
         .then((response) => {
             alert(response.data);response.data === "Success!" ? window.location.replace("/") : window.location.reload()
         });
-    } 
+    }
+
+    const hanleRefreshProduct = () => {
+        setProductName(props.product.name);
+        setProductQuantity(props.product.quantity);
+        setProductPrice(props.product.price);
+        setProductDescription(props.product.description);
+        setImage({"image_preview": "data: image; base64," + props.product.image});
+    }
+
+    useEffect(() => {
+        hanleRefreshProduct();
+    }, [props.product]);
 
     return (
         <Modal show = {props.isShow}>
@@ -40,15 +52,15 @@ const EditProductManageModal = (props) => {
                     </div>
                     <Form.Label>產品數量</Form.Label>
                     <div className='product_outside'>
-                        <Form.Control className='product' placeholder = "Enter product name" value={productQuantity} onChange = {(e) => {setProductQuantity(e.target.value)}} required />
+                        <Form.Control className='product' placeholder = "Enter product quantity" value={productQuantity} onChange = {(e) => {setProductQuantity(e.target.value)}} required />
                     </div>
                     <Form.Label>產品價格</Form.Label>
                     <div className='product_outside'>
-                        <Form.Control className='product' placeholder = "Enter product name" value={productPrice} onChange = {(e) => {setProductPrice(e.target.value)}} required />
+                        <Form.Control className='product' placeholder = "Enter product price" value={productPrice} onChange = {(e) => {setProductPrice(e.target.value)}} required />
                     </div>
                     <Form.Label>產品描述</Form.Label>
                     <div className='product_outside'>
-                        <Form.Control as = "textarea" rows = {3} className='product' placeholder = "Enter product name" value={productDescription} onChange = {(e) => {setProductDescription(e.target.value)}} required />
+                        <Form.Control as = "textarea" rows = {3} className='product' placeholder = "Enter product description" value={productDescription} onChange = {(e) => {setProductDescription(e.target.value)}} required />
                     </div>
                     <Form.Label>產品圖片</Form.Label>
                     <div>
@@ -58,7 +70,7 @@ const EditProductManageModal = (props) => {
                         </div>
 
                         {/* image input field */}
-                        <input type="file" onChange={handleSetImage} />
+                        <input type="file" value="" onChange={handleSetImage} />  {/* this line will cause a warning because the value is uncontroled */}
                     </div>
                     <div className='product_outside'>
                         <Button className="close" variant='secondary' onClick={props.handleClose}>Close</Button>

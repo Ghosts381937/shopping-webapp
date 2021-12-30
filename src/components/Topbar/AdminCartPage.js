@@ -3,10 +3,9 @@ import Button from "@material-ui/core/Button";
 import axios from "../Axios";
 import ProductManageModal from "../CreateProductManageModal";
 import EditProductManageModal from '../EditProductManageModal';
+import "./AdminCartPage.css";
 
 const AdminCart = () => {
-	let quantity = 0;
-	let price = 0;
     const [isShow,setIsShow] = useState(false);
     const [isShowEdit, setIsShowEdit] = useState(false);
     const [editProduct, setEditProduct] = useState([]);
@@ -15,15 +14,28 @@ const AdminCart = () => {
     const handleShowEdit = () => setIsShowEdit(true);
     const handleCloseEdit = () => setIsShowEdit(false);
 	const [item, setProducts] = useState([]);
+	const [scroll, setScroll] = useState(window.scrollY);
+	const [scrollUp, setScrollUp] = useState(true);
+
+	const handleScroll = () => {
+		if (window.scrollY - scroll < 0) {
+			setScrollUp(true);
+		}
+		else {
+			setScrollUp(false);
+		}
+		setScroll(window.scrollY);
+	}
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll, {passive: true});
+		return () => {window.removeEventListener("scroll", handleScroll)};
+	}, [scroll])
 
 	const handleGetProducts = () => {
 		axios.get("/product/showProduct")
 			.then((response) => {
-			
-				
-					setProducts(response.data);
-				
-			
+				setProducts(response.data);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -46,42 +58,49 @@ const AdminCart = () => {
 			);
 	}
 
+	const buttonShow = () => {
+		if (isShow === false && scrollUp === true && isShowEdit === false) {
+			return (
+				<button className='addProduct' onClick={handleShow}></button>
+			);
+		}
+	}
+
 	return (
 		<div className="container">
 			<div className="cart">
 				<table>
-                    <tr className = "item-desc">
-                    <th colspan="2"><center>  </center></th>
-                        <th><center><Button variant = "add" onClick = {handleShow}>產品新增</Button></center> </th>                       
-                    </tr>
-					<tr className="collection-item avatar">
-						<th colspan="2"><center>商品</center></th>
-						<th><center>單價</center></th>
-						<th><center>剩餘數量</center></th>
-						<th><center>操作</center></th>
-					</tr>
-					{item.map((product) => (
-						<tr className="collection-item avatar" key={product.id}>
-							<td className="item-img">
-								<img src={"data: image; base64," + product.image} alt={product.name} className="" />
-							</td>
-							<td className="item-title">
-								<span className="title">{product.name}</span>
-							</td>
-							<td className="item-price">
-								<p><b>{product.price}</b></p>
-							</td>
-							<td className="item-desc">
-								<p><b>{product.quantity}</b></p>
-							</td>
-							<td className="item-desc">
-								<Button variant = "contained" onClick={() => { handleShowEdit(); setEditProduct(product); } }>編輯</Button>
-								<Button variant="contained" onClick={() => { handleRemove(product.id) }}>取消</Button>
-							</td>
+					<tbody>
+						<tr className="collection-item avatar">
+							<th colSpan="2"><center>商品</center></th>
+							<th><center>單價</center></th>
+							<th><center>剩餘數量</center></th>
+							<th><center>操作</center></th>
 						</tr>
-					))}
+						{item.map((product) => (
+							<tr className="collection-item avatar" key={product.id}>
+								<td className="item-img">
+									<img src={"data: image; base64," + product.image} alt={product.name} className="" />
+								</td>
+								<td className="item-title">
+									<span className="title">{product.name}</span>
+								</td>
+								<td className="item-price">
+									<p><b>{product.price}</b></p>
+								</td>
+								<td className="item-desc">
+									<p><b>{product.quantity}</b></p>
+								</td>
+								<td className="item-desc">
+									<Button className='Edit' variant = "contained" onClick={() => { handleShowEdit(); setEditProduct(product);}}>編輯</Button>
+									<Button className='Delete' variant="contained" onClick={() => { handleRemove(product.id) }}>取消</Button>
+								</td>
+							</tr>
+						))}
+					</tbody>
 				</table>
 			</div>
+			{buttonShow()}
             <ProductManageModal isShow = {isShow} handleClose = {handleClose}/>
             <EditProductManageModal isShow = {isShowEdit} product = {editProduct} handleClose = {handleCloseEdit} />
 		</div>
