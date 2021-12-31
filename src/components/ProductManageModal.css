@@ -29,6 +29,7 @@
 
 .submit:hover {
     background-color: #ee4d2d;
+    border: #ee4d2d solid 2px;
     color: white;
 }
 
@@ -42,6 +43,7 @@
 
 .close:hover {
     background-color: #e72325;
+    border: #e72325 solid 2px;
     color: white;
 }
 

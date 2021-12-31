@@ -23,7 +23,7 @@ const ProductManageModal = (props) => {
             "Content-Type": "multipart/form-data"
         }, withCredentials: true})
         .then((response) => {
-            alert(response.data);response.data === "Success!" ? window.location.replace("/") : window.location.reload()
+            alert(response.data);window.location.reload();
         });
     } 
 
@@ -54,7 +54,7 @@ const ProductManageModal = (props) => {
                     <div>
                         {/* image preview */}
                         <div className="img">
-                            <img className="img_real" src={myImg.image_preview} alt="preview"/>
+                            <img className="img_real" src={myImg.image_preview}/>
                         </div>
 
                         {/* image input field */}

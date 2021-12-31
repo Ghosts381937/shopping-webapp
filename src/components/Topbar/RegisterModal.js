@@ -1,4 +1,4 @@
-import '../../App.css';
+import '../ProductManageModal.css';
 import React from 'react';
 import { useState } from 'react';
 import  {Button,Modal,Form}  from 'react-bootstrap';
@@ -40,31 +40,38 @@ const RegisterModal = (props) => {
           <Form onSubmit={(e) => {R_handleSubmit();e.preventDefault();}}>
             <Form.Group className="mb-3">
               <Form.Label>帳號</Form.Label>
-              <Form.Control  placeholder="Enter ID" onChange={(e) => R_setUsername(e.target.value)} required/>
+              <div className='product_outside'>
+                <Form.Control className='product' placeholder="Enter ID" onChange={(e) => R_setUsername(e.target.value)} required/>
+              </div>
+              
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter Email" onChange={(e) => R_setUseremail(e.target.value)} required/>
+              <Form.Label>電子信箱</Form.Label>
+              <div className='product_outside'>
+                <Form.Control className='product'type="email" placeholder="Enter Email" onChange={(e) => R_setUseremail(e.target.value)} required/>
+              </div>
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>密碼</Form.Label>
-              <Form.Control type="password" placeholder="Enter Password" onChange={(e) => R_setPassword(e.target.value)} required/>
+              <div className='product_outside'>
+                <Form.Control className='product' type="password" placeholder="Enter Password" onChange={(e) => R_setPassword(e.target.value)} required/>
+              </div>
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>再次確認密碼</Form.Label>
-              <Form.Control type="password" placeholder="Enter Password" onChange={(e) => R_setPasswordcheck(e.target.value)} required/>
+              <div className='product_outside'>
+                <Form.Control className='product' type="password" placeholder="Enter Password" onChange={(e) => R_setPasswordcheck(e.target.value)} required/>
+              </div>
             </Form.Group>
-          
-            <Button variant='secondary' className="btn mb-3 me-md-3" onClick={props.handleRegisterClose}> Close </Button>
-            
-            <Button variant="primary" className="btn mb-3" type="submit">
-            {/* <Button variant="primary" className="btn mb-3" type="submit" onClick={(e) => {R_handleSubmit();}}> */}
 
-              Submit
-            </Button>
+            <div className='product_outside'>
+              <Button variant='secondary' className="close" onClick={props.handleRegisterClose}> Close </Button>
+              <Button variant="primary" className="submit" type="submit">Submit</Button>
+            </div>
+  
           </Form>
         </Modal.Body>
       </Modal>

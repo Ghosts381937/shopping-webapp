@@ -54,7 +54,7 @@ const AdminCart = () => {
 		})
 			.then((response) => {
 				alert(response.data);
-				response.data === "Success!" ? window.location.reload() : window.location.reload()
+				window.location.reload()
 			}
 			);
 	}
@@ -94,7 +94,7 @@ const AdminCart = () => {
 								</td>
 								<td className="item-desc">
 									<Button className='Edit' variant = "contained" onClick={() => {product["blob"] = Base64.b64toBlob(product.image, 'jpg'); handleShowEdit(); setEditProduct(product);}}>編輯</Button>
-									<Button className='Delete' variant="contained" onClick={() => { handleRemove(product.id) }}>取消</Button>
+									<Button className='Delete' variant="contained" onClick={() => { handleRemove(product.id) }}>刪除</Button>
 								</td>
 							</tr>
 						))}

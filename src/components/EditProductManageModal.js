@@ -24,7 +24,7 @@ const EditProductManageModal = (props) => {
             "Content-Type": "multipart/form-data"
         }, withCredentials: true})
         .then((response) => {
-            alert(response.data); response.data === "Success!" ? window.location.replace("/") : window.location.reload()
+            alert(response.data); window.location.reload();
         });
     }
     
