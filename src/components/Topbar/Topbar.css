@@ -8,6 +8,7 @@
     margin-left: 1vw;
     font-size: 5vh;
     color: #eee;
+    cursor: pointer;
   }
   .searchBar{
     display: flex;
